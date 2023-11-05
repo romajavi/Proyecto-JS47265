@@ -1,0 +1,263 @@
+/*FUENTE*/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+
+
+/*RESET*/
+
+* {
+    font-family: 'Raleway', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    background-image: url('../IMG/fondo.jpg'); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-size: auto; 
+    background-position: center; 
+}
+
+.nombre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    margin: 20px;
+}
+
+.eslogan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    margin: 15px;
+
+}
+
+section h2 {
+    font-size: 20px;
+    text-align: center;
+    margin: 20px;
+    margin-top: 50px;
+}
+
+section p {
+    font-size: 15px;
+    text-align: center;
+    margin: 20px;
+}
+
+
+
+/* Estilos para el formulario */
+#loginForm {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#usuarioForm {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Estilos para las etiquetas */
+#loginForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#usuarioForm label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+#loginForm input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+}
+
+#usuarioForm input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+}
+
+/* Estilos para el botón de ingreso */
+#loginForm input[type="submit"] {
+    background-color: #4ca0af;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#usuarioForm input[type="submit"] {
+    background-color: #4ca0af;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+/* Estilos para el botón de ingreso al pasar el cursor por encima */
+#loginForm input[type="submit"]:hover {
+    background-color: #4c5f63;
+}
+
+#usuarioForm input[type="submit"]:hover {
+    background-color: #4c5f63;
+}
+
+
+
+
+/* Estilo para la pagina de productos */
+
+.app {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonesProductos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.producto-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    margin-right: 20px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+
+.producto-card button {
+    background-color: #4ca0af;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+#comprar {
+    background-color: #4ca0af;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    height: 35px;
+    width: 130px;
+}
+
+#vaciar-carrito {
+    background-color: #4ca0af;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    height: 35px;
+    width: 130px;
+}
+
+
+.carrito-icon {
+    position: relative;
+    cursor: pointer;
+    margin-right: 20px; 
+    margin: 50px;
+
+}
+
+
+
+.carrito-cantidad {
+    position: absolute;
+    top: -10px;
+    left: 20px; 
+    background-color: rgba(0, 255, 242, 0.295);
+    color: rgb(0, 0, 0);
+    border-radius: 100%;
+    padding: 5px 10px;
+    font-size: 14px;
+    min-width: 10px;
+    text-align: center;
+    margin-left: -10px; 
+}
+
+.total-carrito {
+    font-size: 20px;
+}
+
+
+.producto-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    height: 120px;
+    background-color: #f7f7f7;
+}
+
+.producto-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+.producto-card p {
+    font-size: 16px;
+    color: #666;
+}
+
+.producto-card button {
+    background-color: #4ca0af;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.producto-card button:hover {
+    background-color: #4c5f63;
+}
