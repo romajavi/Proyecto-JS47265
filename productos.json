@@ -1,0 +1,7 @@
+[
+    { "id": 1, "nombre": "Dominio para tu web", "precio": 10, "unidades": 5 },
+    { "id": 2, "nombre": "Hosting para tu web", "precio": 20, "unidades": 10 },
+    { "id": 3, "nombre": "Diseño web", "precio": 30, "unidades": 15 },
+    { "id": 4, "nombre": "Certificado de SSL web", "precio": 40, "unidades": 20 }
+]
+

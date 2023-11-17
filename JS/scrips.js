@@ -1,13 +1,7 @@
-const productos = [
-    { id: 1, nombre: "Dominio para tu web", precio: 10, unidades: 5 },
-    { id: 2, nombre: "Hosting para tu web", precio: 20, unidades: 10 },
-    { id: 3, nombre: "Diseño web", precio: 30, unidades: 15 },
-    { id: 4, nombre: "Certificado de SSL web", precio: 40, unidades: 20 },
-];
-
+const productos = [];
 let carrito = [];
 
-//Crear las tarjetas de producto para mandarlas al htlm
+// Función para crear las tarjetas de producto y añadirlas al HTML
 function crearTarjetaProducto(producto) {
     const productoCard = document.createElement('div');
     productoCard.className = 'producto-card';
@@ -16,7 +10,7 @@ function crearTarjetaProducto(producto) {
     const precio = document.createElement('p');
     precio.textContent = `Precio: $${producto.precio}`;
     const stock = document.createElement('p');
-    stock.textContent = `Stock : ${producto.unidades}`;
+    stock.textContent = `Stock: ${producto.unidades}`;
     const botonAgregar = document.createElement('button');
     botonAgregar.textContent = 'Agregar al carrito';
     botonAgregar.addEventListener('click', () => agregarAlCarrito(producto));
@@ -27,8 +21,16 @@ function crearTarjetaProducto(producto) {
     return productoCard;
 }
 
+// Llamada a la función para obtener datos al cargar la página
+document.addEventListener('DOMContentLoaded', function () {
+    obtenerDatos();
+    // Otras funciones y lógica de tu aplicación...
+    // ...
+    // Llamada a la función para actualizar productos
+    actualizarProductos();
+});
 
-//Actualizar carrito al agragar en importe y cantidad
+// Función para actualizar el carrito
 function actualizarCarrito() {
     const contadorCarrito = document.getElementById('carrito-cantidad');
     contadorCarrito.textContent = carrito.reduce((total, producto) => total + producto.unidades, 0);
@@ -37,7 +39,7 @@ function actualizarCarrito() {
     totalCarrito.textContent = `Total: U$D ${sumaTotal}`;
 }
 
-//Para agragar productos al carrito en base al stock disponible
+// Función para agregar productos al carrito
 function agregarAlCarrito(producto) {
     if (producto.unidades > 0) {
         const productoEnCarrito = carrito.find((item) => item.id === producto.id);
@@ -59,7 +61,7 @@ function agregarAlCarrito(producto) {
     }
 }
 
-//Actualizar productos al seleccionar o eliminar productos del carrito
+// Función para actualizar productos al seleccionar o eliminar productos del carrito
 function actualizarProductos() {
     const contenedorProductos = document.getElementById('app');
     contenedorProductos.innerHTML = '';
@@ -69,7 +71,7 @@ function actualizarProductos() {
     });
 }
 
-//Calcular el total del importe del carrito miltiplicando precio x cantidad seleccionada
+// Función para calcular el total del importe del carrito multiplicando precio x cantidad seleccionada
 function calcularTotalCarrito() {
     let total = 0;
     carrito.forEach((producto) => {
@@ -78,14 +80,14 @@ function calcularTotalCarrito() {
     return total;
 }
 
-//Vaciar el carrito
+// Función para vaciar el carrito
 document.getElementById('vaciar-carrito').addEventListener('click', () => {
     carrito = [];
     actualizarCarrito();
     actualizarProductos();
 });
 
-//Fase final al comprar donde se pide mail al usuario para enviar la oferta y luego ir al inicio
+// Función para finalizar la compra
 document.getElementById('comprar').addEventListener('click', () => {
     const email = prompt('Por favor, ingrese su correo electrónico:');
     if (email && email) {
@@ -97,5 +99,16 @@ document.getElementById('comprar').addEventListener('click', () => {
     window.location.href = 'index.html';
 });
 
-actualizarProductos();
-
+// Función para obtener datos mediante AJAX
+function obtenerDatos() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'productos.json', true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            const datos = JSON.parse(xhr.responseText);
+            productos.push(...datos);
+            actualizarProductos();
+        }
+    };
+    xhr.send();
+}
