@@ -21,15 +21,6 @@ function crearTarjetaProducto(producto) {
     return productoCard;
 }
 
-// Llamada a la función para obtener datos al cargar la página
-document.addEventListener('DOMContentLoaded', function () {
-    obtenerDatos();
-    // Otras funciones y lógica de tu aplicación...
-    // ...
-    // Llamada a la función para actualizar productos
-    actualizarProductos();
-});
-
 // Función para actualizar el carrito
 function actualizarCarrito() {
     const contadorCarrito = document.getElementById('carrito-cantidad');
@@ -99,16 +90,21 @@ document.getElementById('comprar').addEventListener('click', () => {
     window.location.href = 'index.html';
 });
 
-// Función para obtener datos mediante AJAX
+// Función para obtener datos mediante Fetch
 function obtenerDatos() {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'productos.json', true);
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            const datos = JSON.parse(xhr.responseText);
+    fetch('productos.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error en la petición: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(datos => {
             productos.push(...datos);
             actualizarProductos();
-        }
-    };
-    xhr.send();
+        })
+        .catch(error => console.error('Error al obtener datos:', error));
 }
+
+// Llamada directa a obtenerDatos, sin esperar a que se cargue la página
+obtenerDatos();
